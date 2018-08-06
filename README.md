@@ -190,8 +190,35 @@ The pipe operator requires that you write consisitent first arguments to work pr
 ## Writing Documentation
 
 1.  install XDoc
+    @moduledoc
+    @doc
 
----
+## Testing
+
+Testing is also a first-class citizen in Elixir
+
+### Doc Testing
+
+If the testing module sees any `## Examples`, it will run the code inside of the docs, testing that all example code results in proper outputs.
+
+### Case Tests
+
+```elixir
+  defmodule CardsTest do
+  use ExUnit.Case
+  doctest Cards
+
+  test "create_deck makes 20 cards" do
+    deck_length = length(Cards.create_deck)
+    assert deck_length == 52
+  end
+end
+```
+
+#### Case Test Key Words
+
+`assert`
+`refute`
 
 ## Installation
 
